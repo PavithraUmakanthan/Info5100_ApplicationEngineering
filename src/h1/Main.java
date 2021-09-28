@@ -1,33 +1,38 @@
 package h1;
 
-
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Main {
 
     public static void main(String args[]) {
 
-        System.out.println(sumOfUniqueElements());
+        int nums[] = {1, 1, 1, 1, 1};
+        System.out.println(sumOfUniqueElements(nums));
 
-        int[] result = squaresInNonDecreasingOrder();
+        int nums1[] = {-4, -2, -1, 0};
+        int[] result = squaresInNonDecreasingOrder(nums1);
         for(int i:result)
             System.out.print(i+" ");
         System.out.println();
 
-        System.out.println(firstNonRepeatedInteger());
+        int[] arr = {2, 3, 4, 2, 2, 3, 5, 7};
+        System.out.println(firstNonRepeatedInteger(arr));
 
-        System.out.println(constructSubString());
+        String str1 = "aa";
+        String str2 = "aab";
+        System.out.println(constructSubString(str1,str2));
 
-        System.out.println(letterFollowedByDigit());
+        String str3 = "A2bb2d4";
+        System.out.println(letterFollowedByDigit(str3));
 
     }
 
-    public static int sumOfUniqueElements() {
+    public static int sumOfUniqueElements(int[] nums) {
 
-        int nums[] = {1, 1, 1, 1, 1};
         int result = 0;
-
+        if(nums.length == 0){
+            return 0;
+        }
         for (int i = 0; i < nums.length; i++) {
             for (int j = 1; j < nums.length; j++) {
 
@@ -41,12 +46,14 @@ public class Main {
         return result;
     }
 
-    public static int[] squaresInNonDecreasingOrder() {
+    public static int[] squaresInNonDecreasingOrder(int[] nums){
 
-        int nums[] = {-4, -2, -1, 0};
         int result[] = new int[nums.length];
         int num = 0;
-
+        if(nums.length == 0){
+            int res[] = new int[2];
+            return res;
+        }
         for (int i = 0; i < nums.length; i++) {
             num = nums[i] * nums[i];
             result[i] = num;
@@ -64,11 +71,12 @@ public class Main {
         return result;
     }
 
-    public static int firstNonRepeatedInteger() {
+    public static int firstNonRepeatedInteger(int[] arr) {
 
-        int[] arr = {2, 3, 4, 2, 2, 3, 5, 7};
         int result;
-
+        if(arr.length == 0){
+            return 0;
+        }
         for (int i = 0; i < arr.length; i++) {
             for (int j = 1; j < arr.length; j++) {
                 if (arr[j] != arr[i]) {
@@ -81,11 +89,11 @@ public class Main {
         return -1;
     }
 
-    public static boolean constructSubString() {
+    public static boolean constructSubString(String str1, String str2) {
 
-        String str1 = "aa";
-        String str2 = "aab";
-
+        if(str1 == null || str2 == null){
+            return false;
+        }
         HashMap<Character, Integer> map1 = new HashMap<>();
         HashMap<Character, Integer> map2 = new HashMap<>();
 
@@ -104,9 +112,11 @@ public class Main {
         }
         return true;
     }
-    public static boolean letterFollowedByDigit(){
-        String str1 = "A2bb2d4";
+    public static boolean letterFollowedByDigit(String str1){
 
+        if(str1 == null){
+            return false;
+        }
         if(Character.isDigit(str1.charAt(0))){
             for (int i = 0; i < str1.length(); i++) {
                 if (i%2 != 0 && Character.isDigit(str1.charAt(i))) {
