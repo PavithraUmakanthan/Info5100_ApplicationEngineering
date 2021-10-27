@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String args[]) {
 
-        int nums[] = {1, 1, 1, 1, 1};
+        int nums[] = {1, 2, 3, 4, 5};
         System.out.println(sumOfUniqueElements(nums));
 
         int nums1[] = {-4, -2, -1, 0};
@@ -18,8 +18,8 @@ public class Main {
         int[] arr = {2, 3, 4, 2, 2, 3, 5, 7};
         System.out.println(firstNonRepeatedInteger(arr));
 
-        String str1 = "aa";
-        String str2 = "aab";
+        String str1 = "a";
+        String str2 = "b";
         System.out.println(constructSubString(str1,str2));
 
         String str3 = "A2bb2d4";
@@ -109,6 +109,7 @@ public class Main {
                     return false;
                 }
             }
+
         }
         return true;
     }
