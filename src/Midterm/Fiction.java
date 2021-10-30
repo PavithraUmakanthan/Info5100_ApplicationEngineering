@@ -28,3 +28,5 @@ public class Fiction extends Book implements iBorrowable{
         return true;
     }
 }
+// The methods declared in the interface will be defined and implemented here only
+// after implementing the interface

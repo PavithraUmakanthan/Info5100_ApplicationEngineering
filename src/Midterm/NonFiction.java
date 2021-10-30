@@ -14,6 +14,9 @@ public class NonFiction extends Book implements iBorrowable{
         return( "Anne Frank all events are imaginary and not based on real facts ");
     }
 
+    // we have to define the abstract method only in the child class after
+    // extending the abstract class as parent class
+
     public void setBorrowDate(int day) {
         startDate = day;
     }

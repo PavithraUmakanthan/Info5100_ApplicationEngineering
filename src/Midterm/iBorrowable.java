@@ -8,4 +8,7 @@ public  interface iBorrowable {
 
 }
 
+// interface is used to declare methods which can be override or defined in any other class
+// using implements to inherit the interface property
+
 

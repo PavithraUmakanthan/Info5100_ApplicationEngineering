@@ -36,4 +36,8 @@ public abstract class Book{
 
     public abstract String description();
 
+    //we can declare abstract method, abstract variables only in abstract class.
+    // For defining the abstract method in any other class we need to
+    // extend the abstract class in our class
+
 }
