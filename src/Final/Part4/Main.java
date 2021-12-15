@@ -64,13 +64,13 @@ public class Main {
         List<Movie> listOfAllMovie = netflix.genres.stream().flatMap(genre -> genre.movies.stream()).collect(Collectors.toList());
         Predicate<Movie> moviesBefore2000 = movie -> movie.releaseDate.before(twoThousand);
         Predicate<Movie> moviesAfter1990 = movie -> movie.releaseDate.after(nineteenHundred);
-        printMovieLimit((ArrayList<Movie>) listOfAllMovie, moviesBefore2000, moviesAfter1990);
+        moviesInRange((ArrayList<Movie>) listOfAllMovie, moviesBefore2000, moviesAfter1990);
 
         /**Write a method which that will add release year in the title of the movie and return the title and
          then use this method for all the movies.**/
-        for(Movie movie : listOfAllMovie) addMovieReleaseYear(movie);
+        for(Movie movie : listOfAllMovie) insertReleaseYear(movie);
 
-        //Sorting on one of the feature(Ex: Released year or title) which will use comparator.
+        /*Sorting on one of the feature(Ex: Released year or title) which will use comparator.*/
         Collections.sort(listOfAllMovie, new Comparator<Movie>() {
             @Override
             public int compare(Movie mov1, Movie mov2) {
@@ -78,19 +78,16 @@ public class Main {
             }
         });
     }
-
-    private static void printMovieLimit(ArrayList<Movie> res, Predicate<Movie> condition1, Predicate<Movie> condition2){
-        for (Movie movie: res) {
+    private static void insertReleaseYear(Movie movie) {
+        SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy");
+        String year = dayFormat.format(movie.releaseDate);
+        movie.title = movie.title + year;
+    }
+    private static void moviesInRange(ArrayList<Movie> result, Predicate<Movie> condition1, Predicate<Movie> condition2){
+        for (Movie movie: result) {
             if(condition1.test(movie) && condition2.test(movie)){
                 System.out.println(movie.title);
             }
         }
     }
-
-    private static void addMovieReleaseYear(Movie movie) {
-        SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy");
-        String year = dayFormat.format(movie.releaseDate);
-        movie.title = movie.title + year;
-    }
-
 }
