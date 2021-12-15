@@ -10,10 +10,12 @@ public class Student {
     private Date dateOfBirth;
 
     public int getId() {
+
         return id;
     }
 
     public void setId(int id) {
+
         this.id = id;
     }
 
@@ -22,6 +24,7 @@ public class Student {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
@@ -38,6 +41,7 @@ public class Student {
     }
 
     public void setDateOfBirth(Date dateOfBirth) {
+
         this.dateOfBirth = dateOfBirth;
     }
 
